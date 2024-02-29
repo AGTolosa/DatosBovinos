@@ -44,6 +44,9 @@ def eda():
                         layout='vertical',
                         )
     sv.config_parser.read('override.ini')
+    st.download_button('Descargar Reporte',
+                    data=open('Reporte.html', 'rb').read(),
+                    file_name='Reporte.html')
     return analisis
 
 def filtrado():
@@ -53,6 +56,10 @@ def filtrado():
                                 layout='vertical',
                                 )
     sv.config_parser.read('override.ini')
+    st.download_button('Descargar Reporte Personalizado',
+                    data=open('Reporte Personalizado.html', 'rb').read(),
+                    file_name='Reporte Personalizado.html'
+                    )
     return analisis_filtrado
 
 def ejecutar():
