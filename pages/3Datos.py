@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import sweetviz as sv
-import os
 
 st.set_page_config(page_title='Censo Bovino - Datos',
                 page_icon=':ox:',
@@ -41,22 +40,20 @@ st.sidebar.write('Cantidad seleccionada: ', variables.__len__())
 def eda():
     variables = sv.FeatureConfig(force_text=["DEPARTAMENTO"])
     analisis = sv.analyze(df, feat_cfg=variables)
-    Escritorio = os.path.expanduser("~/Desktop")
-    Reporte = os.path.join(Escritorio, 'Reporte.html')
-    analisis.show_html(Reporte,
+    analisis.show_html('Reporte.html',
                         layout='vertical',
                         )
     sv.config_parser.read('override.ini')
+    return analisis
 
 def filtrado():
     df_filtrado = df[variables]
     analisis_filtrado = sv.analyze(df_filtrado)
-    Escritorio = os.path.expanduser("~/Desktop")
-    Reporte = os.path.join(Escritorio, 'Reporte Personalizado.html')
-    analisis_filtrado.show_html(Reporte,
+    analisis_filtrado.show_html('~/Desktop/Reporte Personalizado.html',
                                 layout='vertical',
                                 )
     sv.config_parser.read('override.ini')
+    return analisis_filtrado
 
 def ejecutar():
     if len(variables) == 0:
