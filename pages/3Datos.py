@@ -49,7 +49,7 @@ def eda():
 def filtrado():
     df_filtrado = df[variables]
     analisis_filtrado = sv.analyze(df_filtrado)
-    analisis_filtrado.show_html('~/Desktop/Reporte Personalizado.html',
+    analisis_filtrado.show_html('Reporte Personalizado.html',
                                 layout='vertical',
                                 )
     sv.config_parser.read('override.ini')
