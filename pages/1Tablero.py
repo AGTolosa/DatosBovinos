@@ -91,7 +91,7 @@ mapa = go.Figure(go.Choroplethmapbox(
                     locations=locs,
                     z=df[variables],
                     colorscale='prgn_r',
-                    colorbar_title=f'{variables}to.',
+                    colorbar_title=f'{variables}',
                     hovertemplate='%{z:.4s} <extra>%{location}</extra>',
                     ))
 mapa.update_layout(mapbox_style="carto-positron",
@@ -108,7 +108,9 @@ mapa.update_layout(mapbox_style="carto-positron",
                         paper_bgcolor='rgba(50, 50, 50, 0.5)',
                         mapbox_center = {"lat": 4.570868, "lon": -74.2973328})
 
-st.plotly_chart(mapa, use_container_width=True)
+st.plotly_chart(mapa,
+                use_container_width=True,
+                config={'displaylogo': False})
 st.markdown('---')
 
 Grafico1 = go.FigureWidget()
@@ -139,7 +141,7 @@ Grafico1.update_layout(
 
 Grafico1.update_traces(hovertemplate='%{y:.4s}')
 
-st.plotly_chart(Grafico1, use_container_width=True)
+st.plotly_chart(Grafico1, use_container_width=True, config={'displaylogo': False})
 st.markdown('---')
 
 dfBovinos=df.drop(['MUNICIPIO',
@@ -255,10 +257,10 @@ Columna1, Columna2 = st.columns(2)
 
 with Columna1:
     st.header('Animales por Dpto.')
-    st.plotly_chart(Grafico2, use_container_width=True)
+    st.plotly_chart(Grafico2, use_container_width=True, config={'displaylogo': False})
     st.markdown('---')
 
 with Columna2:
     st.header('Fincas por Dpto.')
-    st.plotly_chart(Grafico3, use_container_width=True)
+    st.plotly_chart(Grafico3, use_container_width=True, config={'displaylogo': False})
     st.markdown('---')
