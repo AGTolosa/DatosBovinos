@@ -154,3 +154,7 @@ cython_debug/
 /Virtual
 Reporte.html
 Reporte Personalizado.html
+
+#Cuadernos Jupyter
+*.ipynb
+*.pkl
