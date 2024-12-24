@@ -6,7 +6,7 @@ st.set_page_config(page_title='Censo Bovino',
 
 st.title("Datos Bovinos")
 st.markdown('---')
-    
+
 st.sidebar.success(":arrow_up_small: Elija una sección para empezar:")
 st.sidebar.markdown("---")
 
