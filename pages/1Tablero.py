@@ -88,7 +88,7 @@ variables2 = st.sidebar.selectbox('Seleccione una variable para comparar',
                                 columnas,
                                 index=8)
 
-with open ('Colombia.json') as response:
+with open ('Colombia.geo.json') as response:
     Departamentos = json.load(response)
 
 locs = df['DEPARTAMENTO']
