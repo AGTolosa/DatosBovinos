@@ -3,3 +3,4 @@ plotly
 openpyxl
 sweetviz
 ipywidgets>=7.0.0
+anywidget
