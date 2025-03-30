@@ -276,6 +276,8 @@ dfBovinos1.set_index('DEPARTAMENTO', inplace=True)
 
 dfBovinos1 = dfBovinos1.transpose()
 
+dfBovinos1.columns = dfBovinos1.columns.astype(str)
+
 st.dataframe(dfBovinos1.style.format("{:.0f}",thousands='.'))
 
 
@@ -311,6 +313,8 @@ dfBovinos2.drop_duplicates(inplace=True)
 dfBovinos2.set_index('DEPARTAMENTO', inplace=True)
 
 dfBovinos2 = dfBovinos2.transpose()
+
+dfBovinos2.columns = dfBovinos2.columns.astype(str)
 
 st.dataframe(dfBovinos2.style.format("{:.0f}",thousands='.'))
 
@@ -352,6 +356,8 @@ dfFincas1.set_index('DEPARTAMENTO', inplace=True)
 
 dfFincas1 = dfFincas1.transpose()
 
+dfFincas1.columns = dfBovinos1.columns.astype(str)
+
 st.dataframe(dfFincas1.style.format("{:.0f}", thousands='.'))
 
 
@@ -391,6 +397,8 @@ dfFincas2.drop_duplicates(inplace=True)
 dfFincas2.set_index('DEPARTAMENTO', inplace=True)
 
 dfFincas2 = dfFincas2.transpose()
+
+dfFincas2.columns = dfFincas2.columns.astype(str)
 
 st.dataframe(dfFincas2.style.format("{:.0f}", thousands='.'))
 
