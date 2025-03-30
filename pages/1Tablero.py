@@ -226,6 +226,8 @@ dfFincas.set_index('DEPARTAMENTO', inplace=True)
 
 dfFincas = dfFincas.transpose()
 
+dfFincas.columns = dfFincas.columns.astype(str)
+
 st.dataframe(dfFincas.style.format("{:.0f}", thousands='.'))
 
 st.markdown('---')
