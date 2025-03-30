@@ -1,8 +1,8 @@
 # DatosBovinos
-Censo Bovino Colombia 2023.
+Censo Bovino Colombia a patir del año 2023.
 
 ## Descripción
-Proporciona una visión resumida del Censo Bovino Colombiano realizado en el 2023.
+Proporciona una visión resumida año por año, del Censo Bovino Colombiano realizado a partir del año 2023.
 
 ## Instalación
 - Clonar repositorio.
@@ -20,6 +20,8 @@ Análisis gráfico y comparativo de los datos.
 ### Datos
 Análisis exploratorio de los datos.
 - Variables: generará un análisis exploratorio de las variables seleccionadas; en caso de no seleccionar ninguna, el análisis se ejecutara sobre todas las variables.
+### Vs
+Comparativa entre dos años.
 
 ## Contribución
 

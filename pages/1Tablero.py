@@ -5,22 +5,30 @@ import plotly.graph_objs as go
 import json
 import altair as alt
 
+Anio = [2023, 2024]
+
 st.set_page_config(page_title='Censo Bovino - Tablero',
                 page_icon=':ox:',
                 layout='wide')
 
-st.title('Tablero')
+st.sidebar.header("Año")
+AnioSeleccionado = st.sidebar.selectbox('Seleccione un año',
+                            Anio, index=1)
+st.sidebar.markdown('---')
+
+st.title(f'Tablero {AnioSeleccionado}')
 st.markdown('---')
 
 @st.cache_data
-def load_data():
+def load_data(AnioSeleccionado):
     df=pd.read_excel(
-        io='CENSOS-BOVINOS-2023-Final.xlsx',
+        io=f'CENSOS-BOVINOS-{AnioSeleccionado}-Final.xlsx',
+        #io='CENSOS-BOVINOS-2023-Final.xlsx',
         engine='openpyxl',
         sheet_name='BOVINOS Y PREDIOS',
         skiprows=4,
         usecols='A:Q',
-        nrows=1121,
+        #nrows=1121,
     )
 
     df['DEPARTAMENTO'] = df['DEPARTAMENTO'].replace('NARIÑO', 'NARINO')
@@ -48,7 +56,8 @@ def load_data():
 
     return df
 
-df = load_data()
+df = load_data(AnioSeleccionado)
+
 
 st.sidebar.header("Variables")
 
@@ -79,7 +88,7 @@ variables2 = st.sidebar.selectbox('Seleccione una variable para comparar',
                                 columnas,
                                 index=8)
 
-with open ('Colombia.geo.json') as response:
+with open ('Colombia.json') as response:
     Departamentos = json.load(response)
 
 locs = df['DEPARTAMENTO']
@@ -95,8 +104,8 @@ mapa = go.Figure(go.Choroplethmapbox(
                     hovertemplate='%{z:.4s} <extra>%{location}</extra>',
                     ))
 mapa.update_layout(mapbox_style="carto-positron",
-                        mapbox_zoom=4.3,
-                        height=700,
+                        mapbox_zoom=4.8,
+                        height=750,
                         margin=dict(
                             l=10,
                             r=10,
@@ -106,13 +115,18 @@ mapa.update_layout(mapbox_style="carto-positron",
                             ),
                         
                         paper_bgcolor='rgba(50, 50, 50, 0.5)',
-                        mapbox_center = {"lat": 4.570868, "lon": -74.2973328})
+                        mapbox_center = {"lat": 4.270868, "lon": -74.2973328})
+
+#------------------------------------------------------------------------------
+
+#--------------------------------------------------------------------------------
 
 st.plotly_chart(mapa,
                 use_container_width=True,
                 config={'displaylogo': False})
 st.markdown('---')
 
+# Sección de grafico de barras
 Grafico1 = go.FigureWidget()
 Grafico1.add_scatter(x=df['DEPARTAMENTO'].unique(),
                     y=df[variables].unique(),
@@ -174,7 +188,7 @@ dfBovinos.set_index('DEPARTAMENTO', inplace=True)
 
 dfBovinos = dfBovinos.transpose()
 
-st.dataframe(dfBovinos.style.format(thousands='.'))
+st.dataframe(dfBovinos.style.format("{:.0f}",thousands='.'))
 
 dfFincas=df.drop(['MUNICIPIO',
             'CODIGO MUNICIPIO',
@@ -210,7 +224,7 @@ dfFincas.set_index('DEPARTAMENTO', inplace=True)
 
 dfFincas = dfFincas.transpose()
 
-st.dataframe(dfFincas.style.format(thousands='.'))
+st.dataframe(dfFincas.style.format("{:.0f}", thousands='.'))
 
 st.markdown('---')
 

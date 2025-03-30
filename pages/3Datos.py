@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import sweetviz as sv
 
+Anio = [2023, 2024]
+
 st.set_page_config(page_title='Censo Bovino - Datos',
                 page_icon=':ox:',
                 layout='wide')
@@ -9,10 +11,15 @@ st.set_page_config(page_title='Censo Bovino - Datos',
 st.title('Datos')
 st.markdown('---')
 
+st.sidebar.header("Año")
+AnioSeleccionado = st.sidebar.selectbox('Seleccione año:',
+                            Anio, index=0)
+
 @st.cache_data
-def load_data():
+def load_data(AnioSeleccionado):
     df= pd.read_excel(
-        io='CENSOS-BOVINOS-2023-Final.xlsx',
+        io=f'CENSOS-BOVINOS-{AnioSeleccionado}-Final.xlsx',
+        #io='CENSOS-BOVINOS-2023-Final.xlsx',
         engine='openpyxl',
         sheet_name='Tabla_Departamentos',
         skiprows=4,
@@ -23,7 +30,7 @@ def load_data():
 
     return df
     
-df = load_data()
+df = load_data(AnioSeleccionado)
 
 st.dataframe(df.style.format(thousands='.'))
 st.markdown('---')
