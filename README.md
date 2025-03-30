@@ -1,5 +1,5 @@
 # DatosBovinos
-Censo Bovino Colombia a patir del año 2023.
+Censo Bovino en Colombia a patir del año 2023.
 
 ## Descripción
 Proporciona una visión resumida año por año, del Censo Bovino Colombiano realizado a partir del año 2023.
@@ -24,6 +24,10 @@ Análisis exploratorio de los datos.
 Comparativa entre dos años.
 
 ## Contribución
+Si encuentras algún error o tienes sugerencias de mejora, por favor, sigue estos pasos:
+
+1.  **Informa del error**: Envía un correo electrónico a agtolosaa@unal.edu.co describiendo el error que encontraste. Incluye detalles sobre el sistema operativo, la versión de Python y los pasos para reproducir el error. **Es importante mencionar que muchos errores comunes ocurren debido a incompatibilidades entre las versiones de los paquetes utilizados, por lo que es útil incluir la lista de paquetes instalados y sus versiones.**
+2.  **Propón una solución (opcional)**: Si tienes experiencia en desarrollo y conoces la solución al problema, puedes crear un "pull request" con los cambios necesarios. Asegúrate de que tu código siga las convenciones del proyecto y esté bien documentado.
 
 ## Licencia
 MIT License
