@@ -188,6 +188,8 @@ dfBovinos.set_index('DEPARTAMENTO', inplace=True)
 
 dfBovinos = dfBovinos.transpose()
 
+dfBovinos.columns = dfBovinos.columnsastype(str)
+
 st.dataframe(dfBovinos.style.format("{:.0f}",thousands='.'))
 
 dfFincas=df.drop(['MUNICIPIO',
