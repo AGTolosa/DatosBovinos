@@ -5,7 +5,7 @@ import plotly.graph_objs as go
 import json
 import altair as alt
 
-Anio = [2023, 2024]
+Anio = [2025, 2024, 2023]
 
 st.set_page_config(page_title='Censo Bovino - Tablero',
                 page_icon=':ox:',
@@ -13,7 +13,7 @@ st.set_page_config(page_title='Censo Bovino - Tablero',
 
 st.sidebar.header("Año")
 AnioSeleccionado = st.sidebar.selectbox('Seleccione un año',
-                            Anio, index=1)
+                            Anio, index=0)
 st.sidebar.markdown('---')
 
 st.title(f'Tablero {AnioSeleccionado}')

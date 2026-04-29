@@ -5,7 +5,7 @@ import plotly.graph_objs as go
 import json
 import altair as alt
 
-Anio = [2023, 2024]
+Anio = [2025, 2024, 2023]
 
 st.set_page_config(page_title='Censo Bovino - Comparativa por años',
                 page_icon=':ox:',

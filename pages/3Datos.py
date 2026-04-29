@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import sweetviz as sv
 
-Anio = [2023, 2024]
+Anio = [2025, 2024, 2023]
 
 st.set_page_config(page_title='Censo Bovino - Datos',
                 page_icon=':ox:',
