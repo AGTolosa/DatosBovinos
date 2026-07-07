@@ -103,7 +103,7 @@ variables2 = st.sidebar.selectbox('Seleccione una variable para comparar',
 Columna3, Columna4 = st.columns(2)
 ##Mapa 1
 with Columna3:
-    st.header(f'Mapa {AnioSeleccionado1}')
+    st.header(f'{AnioSeleccionado1} {variables}')
     
     with open ('Colombia.json') as response:
         Departamentos = json.load(response)
@@ -117,7 +117,10 @@ with Columna3:
                         locations=locs,
                         z=df1[variables],
                         colorscale='prgn_r',
-                        colorbar_title=f'{variables}',
+
+                        #colorbar_title=f'{variables}', #Titulo que se debe acortar.
+                        colorbar_title=f'Escala', #Titulo que se debe acortar.
+
                         hovertemplate='%{z:.4s} <extra>%{location}</extra>',
                         ))
     mapa.update_layout(mapbox_style="carto-positron",
@@ -140,7 +143,7 @@ with Columna3:
 
 ##Mapa 2
 with Columna4:
-    st.header(f'Mapa {AnioSeleccionado2}')
+    st.header(f'{AnioSeleccionado2} {variables}')
     with open ('Colombia.json') as response:
         Departamentos = json.load(response)
 
@@ -153,7 +156,10 @@ with Columna4:
                         locations=locs,
                         z=df2[variables],
                         colorscale='prgn_r',
-                        colorbar_title=f'{variables}',
+
+                        #colorbar_title=f'{variables}',
+                        colorbar_title=f'Escala',
+
                         hovertemplate='%{z:.4s} <extra>%{location}</extra>',
                         ))
     mapa.update_layout(mapbox_style="carto-positron",

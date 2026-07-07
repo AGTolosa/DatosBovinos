@@ -14,6 +14,7 @@ st.set_page_config(page_title='Censo Bovino - Tablero',
 st.sidebar.header("Año")
 AnioSeleccionado = st.sidebar.selectbox('Seleccione un año',
                             Anio, index=0)
+
 st.sidebar.markdown('---')
 
 st.title(f'Tablero {AnioSeleccionado}')
