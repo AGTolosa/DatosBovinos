@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import sweetviz as sv
 
-Anio = [2025, 2024, 2023]
+Anio = [2025, 2024, 2023, 2022]
 
 st.set_page_config(page_title='Censo Bovino - Datos',
                 page_icon=':ox:',
@@ -45,7 +45,7 @@ variables = st.sidebar.multiselect(
 st.sidebar.write('Cantidad seleccionada: ', variables.__len__())
 
 def eda():
-    variables = sv.FeatureConfig(force_text=["DEPARTAMENTO"])
+    variables = sv.FeatureConfig(force_text=("DEPARTAMENTO",))
     analisis = sv.analyze(df, feat_cfg=variables)
     analisis.show_html('Reporte.html',
                         layout='vertical',
